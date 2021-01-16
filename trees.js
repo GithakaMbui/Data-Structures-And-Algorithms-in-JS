@@ -82,7 +82,108 @@ function BinarySearchTrees() {
         }
     };
 
-    
+    //Searching for minimum and maximum values
+
+    //Searching for minimum value
+    this.min = function(){
+        return minNode(root);
+    };
+
+    //Implemenation of MinNode helper function
+    var minNode = function(node){
+        if(node){
+            while(node && node.left!==null){
+                node = node.left;
+            }
+            return node.key;
+        }
+        return null;
+    };
+
+    //Searching for maximum value
+    this.max = function(){
+        return maxNode(root);
+    };
+
+    //Implementation of maxNode helper function
+    var maxNode = function(node){
+        if(node){
+            while(node && node.right!==null){
+                node = node.right;
+            }
+            return node.key
+        }
+        return null;
+    };
+
+    //SEARCHING FOR A SPECIFIC VALUE
+    this.search = function(key){
+        return searchNode(root, key);
+    };
+
+    //Implementation of helper function searchNode
+    var searchNode = function(node, key){
+        if(node == null){
+            return false;
+        }
+        if(key < node.key){
+            return searchNode(node.left, key);
+
+        }else if (key > node.key){
+            return searchNode(node.right, key);
+        }else{
+            return true;
+        }
+    };
+
+//REMOVING A NODE FROM A TREE
+
+this.remove = function(key){
+    root = removeNode(root, key);
+};
+
+//Implementation of the removeNode method
+var removeNode = function(node, key){
+    if( node == null) {
+        return false;
+    }
+    else if(key < node.key){
+        node.left = removeNode(node.left, key);
+        return node;
+    }
+    else if(key > node.key){
+        node.right = removeNode(node.right, key);
+        return node;
+    } else{ //key is equal to node.key
+
+        //case 1: a leaf node/ with no children
+        if(node.left == null && node.right == null){
+            node = null;
+            return node;
+        }
+        //case 2: a node with only 1 child
+        if (node.left === null){
+            node = node.right;
+            return node;
+        } else if(node.right === null){
+            node = node.left;
+            return node;
+        }
+        //case 3: a node with 2 children
+        var aux = findMinNode(node.right);
+        node.key = aux.key;
+        node.right = removeNode(node.right, aux.key);
+        return node;
+
+    }
+};
+
+    var findMinNode = function(node){
+        while (node && node.left !==null){
+            node = node.left;
+        }
+        return node;
+    };
 
 
 }
@@ -117,7 +218,23 @@ tree.insert(6);
     //tree.preOrderTraverse(printNode);
    
     //3.
-    tree.postOrderTraverse(printNode);
+    //tree.postOrderTraverse(printNode);
+
+//find the minimum and maximum values of the tree
+console.log(tree.min());
+console.log(tree.max());
+
+    //search for a specific value
+//console.log(tree.search(1) ? 'Key 1 found.' : 'Key 1 not found.');
+//console.log(tree.search(8) ? 'Key 8 found' : 'Key 8 not found' );
+
+//remove a key[12] from the tree
+console.log(tree.search(12) ? 'Key 12 found' : 'Key 12 not found' );
+console.log(tree.remove(12));
+console.log(tree.search(12) ? 'Key 12 found' : 'Key 12 not found' );
+
+
+    
 
 
 
