@@ -1,0 +1,20 @@
+{
+  "name": "Data-Structures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Dictionaries.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GithakaMbui/Data-Structures-And-Algorithms-in-JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GithakaMbui/Data-Structures-And-Algorithms-in-JS/issues"
+  },
+  "homepage": "https://github.com/GithakaMbui/Data-Structures-And-Algorithms-in-JS#readme"
+}

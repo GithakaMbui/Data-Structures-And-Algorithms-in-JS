@@ -2,6 +2,6 @@
 
 ##Learning and practicing data structures and algorithms.
 
-Practice excercise by Githaka A Mbui
+##Practice exercises by Githaka A Mbui
 
  ###A data structure every week
